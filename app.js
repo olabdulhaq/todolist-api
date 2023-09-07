@@ -1,7 +1,10 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors');
 const app = express();
 const port = 8080;
+
+app.use(cors());
 
 // Middleware to parse JSON requests
 app.use(express.json());

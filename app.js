@@ -63,6 +63,7 @@ app.get('/tasks', (req, res) => {
     received: rows.length,
     count: totalCount,
     page: currentPage,
+    totalPages,
     rows,
   });
 });

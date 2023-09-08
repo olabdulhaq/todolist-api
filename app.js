@@ -50,24 +50,11 @@ app.post('/tasks', (req, res) => {
 
 // GET route to fetch todos with pagination
 app.get('/tasks', (req, res) => {
-  const { page } = req.query;
-  const pageSize = 10;
-
   const tasks = readTodosFile();
 
-  const totalCount = tasks.length;
-  const totalPages = Math.ceil(totalCount / pageSize);
-  const currentPage = parseInt(page) || 1;
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  const rows = tasks.slice(startIndex, endIndex);
-
   res.json({
-    received: rows.length,
-    count: totalCount,
-    page: currentPage,
-    totalPages,
-    rows,
+    received: tasks.length,
+    rows: tasks,
   });
 });
 

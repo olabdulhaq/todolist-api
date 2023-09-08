@@ -42,7 +42,7 @@ app.post('/tasks', (req, res) => {
     completed: false,
   };
 
-  tasks.push(newTask);
+  tasks.unshift(newTask);
   writeTodosFile(tasks);
 
   res.status(201).json(newTask);
